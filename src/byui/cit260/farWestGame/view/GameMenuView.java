@@ -7,9 +7,9 @@ import java.util.Scanner;
  *
  * @author Agustin Gimenez 
  */
-public class GameMenuView {
+public class GameMenuView extends View{
     
-    String menu = "V - View Map\n"
+    public String menu = "V - View Map\n"
                 + "I - View list inventory items\n"
                 + "P - Purchase new supplies\n"
                 + "L - Explore a location\n"
@@ -22,24 +22,14 @@ public class GameMenuView {
                 + "R - Hunt for Resources\n"
                 + "S - Save game\n"
                 + "H - Help\n"
-                + "Q - Quit";
+                + "Q - Quit\n"
+                + "Select an Option: ";
 
     public void GameMenuView() {
         
-    }
+    }    
     
-    public void displayGameMenuView() {
-        boolean endOfView = false;
-        do {
-            String inputs = MenuManager.getInputs(menu,null);
-            if (inputs.length() < 1 || inputs.toUpperCase().equals("Q")) {
-                endOfView = true;
-                continue;
-            }
-            endOfView = doAction(inputs);
-        } while (endOfView != true);
-    }
-
+    @Override
     public boolean doAction(String inputs) {
         String menuItem = inputs;
         menuItem = menuItem.toUpperCase(); 

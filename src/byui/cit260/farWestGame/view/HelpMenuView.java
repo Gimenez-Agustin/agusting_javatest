@@ -4,30 +4,33 @@ package byui.cit260.farWestGame.view;
  *
  * @author Araceli Camarillo
  */
-public class HelpMenuView {
-    
-    String menu = "G - What is the goal of the game?\n"
-                + "M - How to move\n"
-                + "E - Estimate the number of resources\n"
-                + "R - Use the resources\n"
-                + "Q - Quit";
+public class HelpMenuView extends View {
+
+    public String menu = "G - What is the goal of the game?\n"
+            + "M - How to move\n"
+            + "E - Estimate the number of resources\n"
+            + "R - Use the resources\n"
+            + "Q - Quit\n"
+            + "Select an Option: ";
 
     public HelpMenuView() {
 
     }
 
-    public void displayHelpMenuView() {
-        boolean endOfView = false;
-        do {
-            String inputs = MenuManager.getInputs(menu,null);
-            if (inputs.length() < 1 || inputs.toUpperCase().equals("Q")) {
-                endOfView = true;
-                continue;
-            }
-            endOfView = doAction(inputs);
-        } while (endOfView != true);
-    }
+//    @Override
+//    public void displayHelpMenuView() {
+//        boolean endOfView = false;
+//        do {
+//            String inputs = getInputs(menu, null);
+//            if (inputs.length() < 1 || inputs.toUpperCase().equals("Q")) {
+//                endOfView = true;
+//                continue;
+//            }
+//            endOfView = doAction(inputs);
+//        } while (endOfView != true);
+//    }
 
+    @Override
     public boolean doAction(String inputs) {
         String menuItem = inputs;
         menuItem = menuItem.toUpperCase(); //all have 2B uppercase and assign to menuItem as uppercases
@@ -50,7 +53,7 @@ public class HelpMenuView {
                 System.out.println("Invalid Menu Item");
         }
         return false;
-    }    
+    }
 
     public void goalOfGame() {
         System.out.println("goal of the game called");

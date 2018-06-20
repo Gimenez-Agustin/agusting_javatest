@@ -6,9 +6,9 @@ import java.util.Scanner;
  *
  * @author Araceli Camarillo
  */
-public class ResourcesMenuView {
+public class ResourcesMenuView extends View{
     
-    String menu = "F - Insert Amount of Food\n"
+    public String menu = "F - Insert Amount of Food\n"
                 + "A - Insert Amount of Axe\n"
                 + "H - Insert Amount of Hammer\n"
                 + "W - Insert Amount of Spare Wheels\n"
@@ -16,25 +16,27 @@ public class ResourcesMenuView {
                 + "W - Insert Amount of Wood\n"
                 + "R - Insert Amount of Rest\n"
                 + "D - Insert Amount of Drinking Water\n"
-                + "Q - Quit";
+                + "Q - Quit\n"
+                + "Select an Option: ";
     
     public ResourcesMenuView() {
     }
     
-    public void displayResourcesMenuView() {
-        boolean endOfView = false;
-        do {
-            String inputs = MenuManager.getInputs(menu,null);
-            if (inputs.length() < 1 || inputs.toUpperCase().equals("Q")) {
-                endOfView = true;
-                continue;
-            }
-            endOfView = doAction(inputs);
-
-        } while (endOfView != true);
+//    public void displayResourcesMenuView() {
+//        boolean endOfView = false;
+//        do {
+//            String inputs = getInputs(menu,null);
+//            if (inputs.length() < 1 || inputs.toUpperCase().equals("Q")) {
+//                endOfView = true;
+//                continue;
+//            }
+//            endOfView = doAction(inputs);
+//
+//        } while (endOfView != true);
+//    
+//    }  
     
-    }  
-    
+    @Override
     public boolean doAction(String inputs) {
         String menuItem = inputs.toUpperCase();
         switch (menuItem) {

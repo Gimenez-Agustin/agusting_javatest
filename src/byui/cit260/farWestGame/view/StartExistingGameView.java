@@ -9,7 +9,7 @@ package byui.cit260.farWestGame.view;
  *
  * @author Agustin Gimenez 
  */
-class StartExistingGameView {
+public class StartExistingGameView {
 
     void displayStartExistingGameView() {
         System.out.println("displayStartExistingGameView called");

@@ -12,9 +12,9 @@ import farwestgamev2.FarWestGameV2;
  *
  * @author Giovanni Castelazo
  */
-public class StartProgramView {
+public class StartProgramView extends View{
 
-    String menu = "      _      _______ _    _ ______   _____ _____ ____  _   _ ______ ______ _____    _______ _____            _____ _           _    \n"
+    public String menu = "      _      _______ _    _ ______   _____ _____ ____  _   _ ______ ______ _____    _______ _____            _____ _           _    \n"
             + "   /\\| |/\\  |__   __| |  | |  ____| |  __ \\_   _/ __ \\| \\ | |  ____|  ____|  __ \\  |__   __|  __ \\     /\\   |_   _| |       /\\| |/\\ \n"
             + "   \\ ` ' /     | |  | |__| | |__    | |__) || || |  | |  \\| | |__  | |__  | |__) |    | |  | |__) |   /  \\    | | | |       \\ ` ' / \n"
             + "  |_     _|    | |  |  __  |  __|   |  ___/ | || |  | | . ` |  __| |  __| |  _  /     | |  |  _  /   / /\\ \\   | | | |      |_     _|\n"
@@ -33,28 +33,29 @@ public class StartProgramView {
             + "\nthat offers such freedom and are eager to start your journey."
             + "\n"
             + "\nGood luck in your Journey!\n"
-            + "***************************************************************\n";
+            + "***************************************************************\n"
+            + "Please enter your name: ";
 
-    String prompt = "Please enter your name";
-
+    
     public StartProgramView() {
 
     }
 
-    public void displayStartProgramView() {
-        boolean endOfView = false;
-        do {
-            String inputs = MenuManager.getInputs(menu,prompt);
-            if (inputs.length() < 1 || inputs.toUpperCase().equals("Q")) {
-                endOfView = true;
-                continue;
-            }
-            endOfView = doAction(inputs);
+//    public void displayStartProgramView() {
+//        boolean endOfView = false;
+//        do {
+//            String inputs = getInputs(menu,prompt);
+//            if (inputs.length() < 1 || inputs.toUpperCase().equals("Q")) {
+//                endOfView = true;
+//                continue;
+//            }
+//            endOfView = doAction(inputs);
+//
+//        } while (endOfView != true);
+//    }
 
-        } while (endOfView != true);
-    }
-
-    private boolean doAction(String inputs) {
+    @Override
+    public boolean doAction(String inputs) {
         String playerName = inputs;
         FarWestGameV2.setPlayer(PlayerControl.savePlayer(playerName));
         if (FarWestGameV2.getPlayer() == null) {
@@ -67,7 +68,7 @@ public class StartProgramView {
                     + "We hope you have a lot of fun!\n"
                     + "=================================================");
             MainMenuView mainMenuView = new MainMenuView();
-            mainMenuView.displayMainMenuView();
+            mainMenuView.display(mainMenuView.menu);
             return true;
         }
     }

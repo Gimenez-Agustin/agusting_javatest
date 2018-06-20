@@ -7,27 +7,29 @@ import farwestgamev2.FarWestGameV2;
  *
  * @author Agustin
  */
-public class MainMenuView {
+public class MainMenuView extends View{
     
-    String menu="N - Start new game\n"
+    public String menu="N - Start new game\n"
                 + "R - Restart existing game\n"
                 + "H - Get help on how to play the game\n"
-                + "E - Exit";
+                + "E - Exit\n"
+                + "Select an Option: ";
     
-    public void displayMainMenuView() {
-        boolean endOfView = false;
-        do {
-            String inputs = MenuManager.getInputs(menu,null);
-            if (inputs.length() < 1 || inputs.toUpperCase().equals("Q")) {
-                endOfView = true;
-                continue;
-            }
-            endOfView = doAction(inputs);
+//    public void displayMainMenuView() {
+//        boolean endOfView = false;
+//        do {
+//            String inputs = getInputs(menu,null);
+//            if (inputs.length() < 1 || inputs.toUpperCase().equals("Q")) {
+//                endOfView = true;
+//                continue;
+//            }
+//            endOfView = doAction(inputs);
+//
+//        } while (endOfView != true);
+//    }
 
-        } while (endOfView != true);
-    }
-
-    private boolean doAction(String inputs) {
+    @Override
+    public boolean doAction(String inputs) {
         String menuItem = inputs.toUpperCase();
         switch (menuItem) {
             case "N":
@@ -50,7 +52,7 @@ public class MainMenuView {
     private void startNewGame() {
         GameControl.createNewGame(FarWestGameV2.getPlayer());
         GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.displayGameMenuView();
+        gameMenuView.display(gameMenuView.menu);
     }
 
     private void restartGame() {
@@ -60,6 +62,6 @@ public class MainMenuView {
 
     private void getHelp() {
         HelpMenuView helpMenuView = new HelpMenuView(); 
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display(helpMenuView.menu);
     }
 }

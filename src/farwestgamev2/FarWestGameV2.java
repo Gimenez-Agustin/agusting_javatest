@@ -39,7 +39,7 @@ public class FarWestGameV2 {
      */
     public static void main(String[] args) {
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+        startProgramView.display(startProgramView.menu);
     }
     
 }
